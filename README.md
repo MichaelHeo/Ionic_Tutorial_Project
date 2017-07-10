@@ -13,4 +13,5 @@ Project for learning purposes
 ## Start Application
 ```
     - ionic serve
+    - ionic serve --lab
 ```
