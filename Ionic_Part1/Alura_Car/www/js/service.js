@@ -14,7 +14,6 @@ angular.module('starter').service('CarroService', function($http){
         },
         realizarLogin : function(dadosDoLogin){
             return $http.get(url + "login", dadosDoLogin).then(function(response){
-                console.log($http.get(url + "login", dadosDoLogin));
                 return response.data;
             });
         }

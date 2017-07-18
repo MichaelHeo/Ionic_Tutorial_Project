@@ -49,7 +49,7 @@ angular.module('starter').controller('FinalizarPedidoController', function($stat
                 title: "Parabens",
                 template: "Voce acaba de comprar um carro."
             }).then(function(){
-                $state.go('listagem');
+                $state.go('app.listagem');
             });
 
         }, function(erro){
@@ -64,7 +64,7 @@ angular.module('starter').controller('FinalizarPedidoController', function($stat
     }
 });
 
-angular.module('starter').controller('LoginController',function($scope, CarroService, $ionicPopup){
+angular.module('starter').controller('LoginController',function($scope, CarroService, $ionicPopup, $state, $rootScope){
     $scope.login = {};
     $scope.realizarLogin = function(){
         var dadosDoLogin = {
@@ -75,12 +75,18 @@ angular.module('starter').controller('LoginController',function($scope, CarroSer
         };
 
         CarroService.realizarLogin(dadosDoLogin).then(function(dados){
-            $state.go('listagem');
+            $rootScope.usuario = dados.usuario;
+            
+            $state.go('app.listagem');
         }, function(erro){
             $ionicPopup.alert({
                 title: "Deu erro",
                 template: "Email ou senha incorretos"
             });
         });
-    }
+    };
+});
+
+angular.module('starter').controller('MenuController', function($rootScope, $scope){
+    $scope.usuarioLogado = $rootScope.usuario;
 });
