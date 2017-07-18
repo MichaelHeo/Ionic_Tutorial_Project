@@ -90,3 +90,20 @@ angular.module('starter').controller('LoginController',function($scope, CarroSer
 angular.module('starter').controller('MenuController', function($rootScope, $scope){
     $scope.usuarioLogado = $rootScope.usuario;
 });
+
+angular.module('starter').controller('PerfilController', function($scope, $rootScope) {
+    $scope.estaEditando = false;
+    $scope.usuarioLogado = $rootScope.usuario;
+    $scope.textoBotao = 'Editar';
+
+    $scope.acaoBotao = function(){
+        if($scope.estaEditando){
+            $scope.estaEditando = false;
+            $scope.textoBotao = 'Editar';
+        } else {
+            $scope.estaEditando = true;
+            $scope.textoBotao = 'Salvar';
+        }
+        $scope.estaEditando = true;
+    };
+});

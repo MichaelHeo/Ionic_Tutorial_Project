@@ -10,6 +10,15 @@ angular.module('starter')
             abstract: true,
             controller: 'MenuController'
         })
+        .state('app.perfil', {
+            url: '/perfil',
+            views: {
+                'menuContent' : {
+                    templateUrl: 'templates/perfil.html',
+                    controller: 'PerfilController'
+                }
+            }
+        })
         .state('app.listagem', { // ROTA refatorada para aceitar o app, que eh o side menu!
             url: '/listagem',
             views: {
@@ -17,7 +26,7 @@ angular.module('starter')
                     templateUrl: 'templates/listagem.html',
                     controller: 'ListagemController'
                 }
-            },
+            }
         })
         .state('carroescolhido', {
             url: '/carroescolhido/:carro', // Passando como parametro o carro para usar no carroescolhido
